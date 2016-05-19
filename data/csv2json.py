@@ -14,7 +14,6 @@ Globals
 '''
 
 CSV_FILE = 'spring_thursday_2016.csv'
-GAMES_PER_WEEK = 8
 week_index = 0
 floating_time = ''
 data = []
