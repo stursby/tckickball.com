@@ -12,11 +12,22 @@ module.exports = {
     root: path.join(__dirname, 'node_modules'),
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src')
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel'],
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader',
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      }
+    ]
   },
   devServer: {
     historyApiFallback: true,
