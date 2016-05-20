@@ -29,3 +29,8 @@ exports.slugify = (text) => {
     .replace(/^-+/, '')
     .replace(/-+$/, '');
 }
+
+// http://stackoverflow.com/a/29622653/864290
+exports.sortObject = (o) => {
+  return Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
+}

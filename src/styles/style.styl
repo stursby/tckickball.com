@@ -14,6 +14,9 @@ a
   text-decoration none
   color currentColor
 
+ul
+  list-style none
+
 header
   position fixed
   z-index 1
@@ -37,13 +40,15 @@ h1
     top: 25px
     left 20px
 
+h2
+  margin-bottom 20px
+
 .teams
-  list-style none
   display flex
   flex-direction column
 
 .team
-  border-bottom 1px solid lightgray
+  border-bottom 1px solid #e3e3e3
   padding 20px
   font-size 18px
   overflow hidden
@@ -64,3 +69,22 @@ h1
   margin-left auto
   font-size 20px
   position relative
+  top: -2px
+  opacity: 0.8
+
+.schedule-wrapper
+  overflow auto
+  padding 25px
+  h4
+    position relative
+
+.schedule-offset
+  position absolute
+  left 100px
+  font-weight 400
+
+.game
+  position relative
+  margin 5px 0 15px 0
+  border-bottom 1px solid #e3e3e3
+  padding-bottom: 10px

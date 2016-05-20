@@ -17,20 +17,8 @@ export default class App extends Component {
     }
   }
 
-  // renderWeek(key) {
-  //   // console.log(key)
-  //   // return (
-  //   //   <li key={key.week}>Week {key.week} - {key.date}</li>
-  //   // )
-  // }
-
-  // renderTeam(team) {
-  //   console.log(team);
-  // }
-
   render() {
     let homepage = isEmpty(this.props.params)
-    console.log('homepage', homepage)
     return (
       <div>
         <header>
