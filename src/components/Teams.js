@@ -7,7 +7,7 @@ export default class Teams extends Component {
 
   renderTeam(team, i) {
     let color = this.props.teams[team]
-    let darkened = shadeColor(color, -5)
+    let darkened = shadeColor(color, -20)
     let style = {
       background: color,
       border: `1px solid ${darkened}`
