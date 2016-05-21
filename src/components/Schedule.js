@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 import { findIndex, keys, find } from 'lodash'
 import { slugify } from '../helpers'
+import Hammer from 'react-hammerjs'
 
 export default class Schedule extends Component {
 
@@ -21,6 +23,12 @@ export default class Schedule extends Component {
     })
   }
 
+  handleSwipe(e) {
+    if (e.direction === 4) {
+      browserHistory.push('/')
+    }
+  }
+
   renderWeek(i) {
     let { week, date, games } = this.props.schedule[i]
     let teamName = this.state.teamName
@@ -39,12 +47,14 @@ export default class Schedule extends Component {
 
   render() {
     return (
-      <div className="schedule-wrapper">
-        <h2>{this.state.teamName}</h2>
-        <ul className="schedule">
-          {Object.keys(this.props.schedule).map(::this.renderWeek)}
-        </ul>
-      </div>
+      <Hammer onSwipe={this.handleSwipe}>
+        <div className="schedule-wrapper">
+          <h2>{this.state.teamName}</h2>
+          <ul className="schedule">
+            {Object.keys(this.props.schedule).map(::this.renderWeek)}
+          </ul>
+        </div>
+      </Hammer>
     )
   }
 

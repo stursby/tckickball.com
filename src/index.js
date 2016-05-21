@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import Fastclick from 'fastclick'
 
 import css from './styles/style.styl'
 
@@ -11,7 +12,7 @@ import Detail from './components/Detail'
 import NotFound from './components/NotFound'
 
 const router = (
-  <Router history={browserHistory}>
+  <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Teams} />
       <Route path="/schedule/:teamSlug" component={Schedule} />
@@ -20,5 +21,7 @@ const router = (
     </Route>
   </Router>
 )
+
+Fastclick.attach(document.body)
 
 ReactDOM.render(router, document.getElementById('app'))
