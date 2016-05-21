@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { shadeColor, slugify, sortObject } from '../helpers'
-import KeyboardArrowRight from 'react-icons/lib/md/keyboard-arrow-right'
+import { MdKeyboardArrowRight } from 'react-icons/lib/md'
 
 export default class Teams extends Component {
 
@@ -19,7 +19,7 @@ export default class Teams extends Component {
           <span className="team-color" style={style}></span>
           <p>{team}</p>
           <span className="team-arrow">
-            <KeyboardArrowRight />
+            <MdKeyboardArrowRight />
           </span>
         </Link>
       </li>

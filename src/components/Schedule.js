@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { findIndex, keys, find } from 'lodash'
 import { slugify } from '../helpers'
 import Hammer from 'react-hammerjs'
+import { FaStarO, FaStar } from 'react-icons/lib/fa'
 
 export default class Schedule extends Component {
 

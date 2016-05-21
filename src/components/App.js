@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { isEmpty } from 'lodash'
 import schedule from '../../data/spring_thursday_2016.json'
 import teams from '../../data/teams.json'
-import ArrowBack from 'react-icons/lib/md/arrow-back'
+import { MdArrowBack } from 'react-icons/lib/md'
 
 import Teams from './Teams'
 
@@ -18,13 +18,15 @@ export default class App extends Component {
   }
 
   render() {
-    let homepage = isEmpty(this.props.params)
+    let { params } = this.props
+    let homepage = isEmpty(params)
+    let schedule = (params.teamSlug) ? true : false
     return (
       <div>
         <header>
           <h1>
             <Link to="/">
-              {(homepage) ? '' : <ArrowBack className="back" />}
+              {(homepage) ? '' : <MdArrowBack className="back" />}
               TC Kickball
             </Link>
           </h1>
