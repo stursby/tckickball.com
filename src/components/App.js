@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { isEmpty } from 'lodash'
 import schedule from '../../data/spring_thursday_2016.json'
 import teams from '../../data/teams.json'
-import { MdArrowBack } from 'react-icons/lib/md'
+import MdArrowBack from 'react-icons/lib/md/arrow-back'
 
 import Teams from './Teams'
 
