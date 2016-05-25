@@ -35,13 +35,20 @@ export default class Schedule extends Component {
     let { week, date, games } = this.props.schedule[i]
     let teamName = this.state.teamName
     let game = find(games, {'home': teamName}) || find(games, {'away': teamName})
+    let ref = find(games, {'ref': teamName})
+    console.log(ref)
     return (
-      <li key={i}>
-        <h4>Week {week}  <span className="schedule-date schedule-offset">{date}</span></h4>
+      <li key={i} className="expired">
+        <h4>Week {week} <span className="schedule-date schedule-offset">{date}</span></h4>
         <div className="game">
-        {game.home} &nbsp;vs&nbsp; {game.away}
+        {game.home} <span className="vs">vs</span> {game.away}
         <br/>
-        Field {game.field} <span className="schedule-offset">{game.time}</span>
+        <span className="game-details active">Play</span>
+          Field {game.field} <span className="schedule-offset">{game.time}</span>
+        <br/>
+        <span className={(ref) ? 'game-details active': 'game-details'}>Ref</span>
+          {(ref && ref.field) ? `Field ${ref.field}` : 'Nope!'}
+          <span className="schedule-offset">{(ref) ? `${ref.time}` : '🍻'}</span>
         </div>
       </li>
     )
