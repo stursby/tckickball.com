@@ -17,6 +17,7 @@
     "css-loader": "^0.23.1",
     "fastclick": "^1.0.6",
     "json-loader": "^0.5.4",
+    "lockr": "^0.8.4",
     "lodash": "^4.12.0",
     "node-sass": "^3.7.0",
     "react": "^15.0.2",

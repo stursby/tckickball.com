@@ -19,7 +19,7 @@ export default class Teams extends Component {
           <span className="team-color" style={style}></span>
           <p>{team}</p>
           <span className="team-arrow">
-            {<MdKeyboardArrowRight />}
+            {<MdKeyboardArrowRight className="icon" />}
           </span>
         </Link>
       </li>

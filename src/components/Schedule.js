@@ -15,7 +15,14 @@ export default class Schedule extends Component {
     }
   }
 
-  componentWillMount() {
+  componentWillReceiveProps(nextProps) {
+    console.log('nextProps', nextProps)
+    this.setState({
+      teamName: nextProps.favoriteTeam
+    })
+  }
+
+  showSchedule() {
     let { teams } = this.props
     let teamSlug = this.props.params.teamSlug
     let teamNames = keys(teams)
@@ -31,12 +38,29 @@ export default class Schedule extends Component {
     }
   }
 
+  renderStar() {
+    let isFavorite = (this.state.teamName === this.props.favoriteTeam)
+    if (isFavorite) {
+      return (
+        <FaStar
+          onClick={this.props.setFavoriteTeam.bind(this, {})}
+          className="icon favorite"
+        />
+      )
+    }
+    return (
+      <FaStarO
+        onClick={this.props.setFavoriteTeam.bind(this, this.state.teamName)}
+        className="icon favorite"
+      />
+    )
+  }
+
   renderWeek(i) {
     let { week, date, games } = this.props.schedule[i]
     let teamName = this.state.teamName
     let game = find(games, {'home': teamName}) || find(games, {'away': teamName})
     let ref = find(games, {'ref': teamName})
-    console.log(ref)
     return (
       <li key={i} className="expired">
         <h4>Week {week} <span className="schedule-date schedule-offset">{date}</span></h4>
@@ -58,7 +82,10 @@ export default class Schedule extends Component {
     return (
       <Hammer onSwipe={this.handleSwipe}>
         <div className="schedule-wrapper">
-          <h2>{this.state.teamName}</h2>
+          <h2>
+            {this.state.teamName}
+            {this.renderStar()}
+          </h2>
           <ul className="schedule">
             {Object.keys(this.props.schedule).map(::this.renderWeek)}
           </ul>

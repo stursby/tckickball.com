@@ -41,8 +41,8 @@ h1
     color #fff
   .back
     position absolute
-    top: 25px
-    left 20px
+    top 20px
+    left 15px
 
 h2
   margin-bottom 20px
@@ -54,7 +54,7 @@ h2
 .team
   border-bottom 1px solid #e3e3e3
   font-size 18px
-  overflow hidden
+  position relative
   a
     display flex
     flex-direction row
@@ -71,11 +71,10 @@ h2
   display inline-block
 
 .team-arrow
-  margin-left auto
-  font-size 20px
-  position relative
-  top: -2px
-  opacity: 0.8
+  position absolute
+  right 10px
+  top 10px
+  opacity 0.5
 
 .schedule-wrapper
   overflow auto
@@ -104,3 +103,20 @@ h2
   margin 5px 0 15px 0
   border-bottom 1px solid #e3e3e3
   padding-bottom: 10px
+
+.icon
+  width 44px
+  height 44px
+  padding 6px
+
+.favorite
+  margin-left 10px
+  position relative
+  top -2px
+  padding 8px
+  &--header
+    position absolute
+    top 20px
+    right 15px
+    padding 8px
+    color #fff
