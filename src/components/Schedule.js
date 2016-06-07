@@ -22,6 +22,11 @@ export default class Schedule extends Component {
     })
   }
 
+  componentWillMount() {
+    console.log('componentWillMount()')
+    this.showSchedule()
+  }
+
   showSchedule() {
     let { teams } = this.props
     let teamSlug = this.props.params.teamSlug
