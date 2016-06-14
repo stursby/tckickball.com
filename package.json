@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
+    "precache": "sw-precache --config=./sw-precache-config.json",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "deploy": "npm run build && surge"
+    "deploy": "npm run precache && npm run build && surge"
   },
   "author": "Charlie Hield",
   "license": "ISC",

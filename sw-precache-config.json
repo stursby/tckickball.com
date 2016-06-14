@@ -1,0 +1,12 @@
+{
+  "staticFileGlobs": [
+    "*.html",
+    "data/**.json",
+    "images/**.*",
+    "dist/**.js"
+  ],
+  "runtimeCaching": [{
+    "urlPattern": "/^https:\\/\\/use.(?:typekit).net\\/.*/",
+    "handler": "cacheFirst"
+  }]
+}

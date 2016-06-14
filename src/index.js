@@ -22,6 +22,10 @@ const router = (
   </Router>
 )
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+}
+
 Fastclick.attach(document.body)
 
 ReactDOM.render(router, document.getElementById('app'))
