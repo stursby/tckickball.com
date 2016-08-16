@@ -1,5 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
+const Dashboard = require('webpack-dashboard')
+const DashboardPlugin = require('webpack-dashboard/plugin')
+const dashboard = new Dashboard()
 
 module.exports = {
   entry: './src/index.js',
@@ -31,9 +34,13 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    quiet: true
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new DashboardPlugin(dashboard.setData)
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {

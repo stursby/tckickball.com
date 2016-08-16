@@ -27,7 +27,6 @@ export default class App extends Component {
 
   handleFavoriteClick() {
     let slug = slugify(this.state.favoriteTeam)
-    console.log('HANDLE FAV CLICK', slug)
     browserHistory.push(`/schedule/${slug}`)
   }
 

@@ -16,14 +16,12 @@ export default class Schedule extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps)
     this.setState({
       teamName: nextProps.favoriteTeam
     })
   }
 
   componentWillMount() {
-    console.log('componentWillMount()')
     this.showSchedule()
   }
 

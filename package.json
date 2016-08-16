@@ -2,7 +2,7 @@
   "name": "tckickball.com",
   "version": "1.0.0",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot",
+    "dev": "webpack-dev-server --port 9000 --inline --hot",
     "precache": "sw-precache --config=./sw-precache-config.json",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "deploy": "npm run precache && npm run build && surge"
@@ -32,6 +32,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.0",
     "webpack": "^1.13.0",
+    "webpack-dashboard": "0.0.1",
     "webpack-dev-server": "^1.14.1"
   }
 }
