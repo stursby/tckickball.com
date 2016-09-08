@@ -13,7 +13,7 @@ import json
 Globals
 '''
 
-CSV_FILE = 'spring_thursday_2016.csv'
+CSV_FILE = 'fall_thursday_2016.csv'
 week_index = 0
 floating_time = ''
 data = []
@@ -61,6 +61,6 @@ Save JSON
 '''
 
 # print json.dumps(data, indent=4)
-with open('spring_thursday_2016.json', 'w') as outfile:
+with open('fall_thursday_2016.json', 'w') as outfile:
     json.dump(data, outfile)
     print 'Successfully generated JSON!'

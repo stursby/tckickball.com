@@ -1,15 +1,13 @@
+const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
-const Dashboard = require('webpack-dashboard')
-const DashboardPlugin = require('webpack-dashboard/plugin')
-const dashboard = new Dashboard()
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'bundle.js'
   },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules'),
@@ -37,10 +35,7 @@ module.exports = {
     noInfo: true,
     quiet: true
   },
-  devtool: '#eval-source-map',
-  plugins: [
-    new DashboardPlugin(dashboard.setData)
-  ]
+  devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -58,4 +53,25 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.optimize.OccurenceOrderPlugin()
   ])
+  module.exports.output.filename = 'bundle-[hash].js'
+  module.exports.plugins.push(
+    function () {
+      this.plugin('done', function (stats) {
+        var replaceInFile = function (filePath, toReplace, replacement) {
+          var replacer = function (match) {
+            console.log('Replacing in %s: %s => %s', filePath, match, replacement)
+            return replacement
+          };
+          var str = fs.readFileSync(filePath, 'utf8')
+          var out = str.replace(new RegExp(toReplace, 'g'), replacer)
+          fs.writeFileSync(filePath, out)
+        }
+        var hash = stats.hash
+        replaceInFile(path.join(__dirname, 'index.html'),
+          'bundle.js',
+          'bundle-' + hash + '.js'
+        )
+      })
+    }
+  )
 }
